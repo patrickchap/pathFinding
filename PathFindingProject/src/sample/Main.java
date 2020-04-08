@@ -8,15 +8,19 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("pathFinderVisual.fxml"));
         primaryStage.setTitle("Path Finder");
         primaryStage.setScene(new Scene(root, 1100, 800));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
         launch(args);
+
+
     }
 }

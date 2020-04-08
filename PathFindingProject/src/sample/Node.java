@@ -11,11 +11,9 @@ import java.util.Map;
 
 public class Node extends StackPane {
 
-
     public Rectangle border = new Rectangle(15-2, 15-2);
     private List<Node> neighbors = new ArrayList<Node>();
     private Node cameFrom;
-
     private  Map<String, Node> mazeNeighbors = new HashMap<>();
 
     public boolean visited = false;

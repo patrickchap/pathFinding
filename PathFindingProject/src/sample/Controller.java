@@ -13,7 +13,7 @@ public class Controller {
 
     Graph graph;
 
-    public void show(){
+    public void initialize(){
         graph = new Graph(41,51);
         ancorPane.getChildren().add(graph);
     }
@@ -21,8 +21,11 @@ public class Controller {
     public void runBFS() {
         graph.setElements();
         graph.setNeighbors();
+        unweightedSearch bfs = new unweightedSearch();
+
         Thread t = new Thread(() -> {
-            graph.bfs();
+            bfs.bfs(graph);
+//            graph.bfs();
         });
         t.start();
     }
@@ -40,6 +43,11 @@ public class Controller {
     public void setWalls(){
         graph.setOnMousePressed(e ->   graph.setWalls());
         menueBtn.setText("Set Walls");
+    }
+
+    public void removeWalls(){
+        graph.setOnMousePressed((e -> graph.removeWalls()));
+        menueBtn.setText("Remove Walls");
     }
 
     public void generateMaze(){
