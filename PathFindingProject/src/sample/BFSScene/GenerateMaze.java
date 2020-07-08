@@ -1,4 +1,4 @@
-package sample;
+package sample.BFSScene;
 
 
 import javafx.scene.paint.Color;
@@ -17,7 +17,7 @@ public class GenerateMaze {
     }
 
 
-    public void setGraphToBlack(){
+    private void setGraphToBlack(){
 
         for(int i = 1; i < this.graph.getRows()-1; i++){
             for(int j = 1; j < this.graph.getCols()-1; j++){
@@ -41,7 +41,7 @@ public class GenerateMaze {
 
     }
 
-    public void setMazeNeighbors(){
+    private void setMazeNeighbors(){
 
         for(int i = 1; i < this.graph.getRows()-1; i+=2){
             for(int j = 1; j < this.graph.getCols() -1; j+=2){
@@ -63,7 +63,7 @@ public class GenerateMaze {
         }
     }
 
-    public void removeWall(Node node, String string){
+    private void removeWall(Node node, String string){
 
         for(int i = 1; i < this.graph.getRows()-1; i+=2){
             for(int j = 1; j < this.graph.getCols() -1; j+=2) {
@@ -83,6 +83,7 @@ public class GenerateMaze {
 
 
     public void maze(){
+        this.setGraphToBlack();
 
         this.setMazeNeighbors();
         Random rand = new Random();

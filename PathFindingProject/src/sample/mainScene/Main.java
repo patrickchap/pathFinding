@@ -1,4 +1,4 @@
-package sample;
+package sample.mainScene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,16 +11,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("pathFinderVisual.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));
         primaryStage.setTitle("Path Finder");
-        primaryStage.setScene(new Scene(root, 1100, 800));
+        primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
 
     }
 
     public static void main(String[] args) {
         launch(args);
-
 
     }
 }

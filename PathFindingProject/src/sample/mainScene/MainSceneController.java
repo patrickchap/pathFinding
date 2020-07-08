@@ -1,0 +1,31 @@
+package sample.mainScene;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
+
+public class MainSceneController {
+
+
+    public void initialize(){
+//        graph = new Graph(41,51);
+//        ancorPane.getChildren().add(graph);
+    }
+
+    @FXML
+    public void openBFSScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/BFSScene/pathFinderVisual.fxml"));
+        Scene scene = new Scene(root, 1100, 800);
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setTitle("BFS");
+        stage.setScene(scene);
+        stage.show();
+    }
+}

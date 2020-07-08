@@ -1,4 +1,4 @@
-package sample;
+package sample.BFSScene;
 
 
 import javafx.scene.layout.StackPane;

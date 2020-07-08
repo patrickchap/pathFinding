@@ -1,4 +1,4 @@
-package sample;
+package sample.BFSScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -25,34 +25,32 @@ public class Controller {
 
         Thread t = new Thread(() -> {
             bfs.bfs(graph);
-//            graph.bfs();
         });
         t.start();
     }
 
     public void setStartNode() {
         graph.setOnMousePressed(e ->   graph.setStartingNode());
-        menueBtn.setText("Set Starting Node");
+//        menueBtn.setText("Set Starting Node");
     }
 
     public void setGoalNode() {
         graph.setOnMousePressed(e ->   graph.setGoalNode());
-        menueBtn.setText("Set Goal Node");
+//        menueBtn.setText("Set Goal Node");
     }
 
     public void setWalls(){
         graph.setOnMousePressed(e ->   graph.setWalls());
-        menueBtn.setText("Set Walls");
+//        menueBtn.setText("Set Walls");
     }
 
     public void removeWalls(){
         graph.setOnMousePressed((e -> graph.removeWalls()));
-        menueBtn.setText("Remove Walls");
+//        menueBtn.setText("Remove Walls");
     }
 
     public void generateMaze(){
         GenerateMaze generateMaze = new GenerateMaze(graph);
-        generateMaze.setGraphToBlack();
         Thread t = new Thread(() -> {
             generateMaze.maze();
         });
