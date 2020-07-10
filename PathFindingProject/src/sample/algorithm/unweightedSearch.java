@@ -1,6 +1,8 @@
-package sample.BFSScene;
+package sample.algorithm;
 
 import javafx.scene.paint.Color;
+import sample.BFSScene.Graph;
+import sample.BFSScene.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;

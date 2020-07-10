@@ -1,52 +1,60 @@
-package sample.BFSScene;
+package sample.algorithm;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import sample.algorithm.unweightedSearch;
+import sample.BFSScene.GenerateMaze;
+import sample.BFSScene.Graph;
 
-public class Controller {
+public class DijkstraController {
 
     @FXML
-    AnchorPane ancorPane;
-//    @FXML
-//    MenuButton menueBtn;
-
+    AnchorPane dijAnchorPane;
     Graph graph;
 
+    @FXML
     public void initialize(){
         graph = new Graph(41,51);
-        ancorPane.getChildren().add(graph);
+        dijAnchorPane.getChildren().add(graph);
     }
 
-    public void runBFS() {
+
+    public void runDijkstras(){
         graph.setElements();
         graph.setNeighbors();
-        unweightedSearch bfs = new unweightedSearch();
+        graph.setNeighborsDistance();
+
+        WeightedSearch dij = new WeightedSearch();
 
         Thread t = new Thread(() -> {
-            bfs.bfs(graph);
+            dij.dijkstra(graph);
         });
         t.start();
+
+
     }
+
+
+
 
     public void setStartNode() {
         graph.setOnMousePressed(e ->   graph.setStartingNode());
-//        menueBtn.setText("Set Starting Node");
     }
 
     public void setGoalNode() {
         graph.setOnMousePressed(e ->   graph.setGoalNode());
-//        menueBtn.setText("Set Goal Node");
     }
 
     public void setWalls(){
         graph.setOnMousePressed(e ->   graph.setWalls());
-//        menueBtn.setText("Set Walls");
     }
 
     public void removeWalls(){
         graph.setOnMousePressed((e -> graph.removeWalls()));
-//        menueBtn.setText("Remove Walls");
+    }
+
+
+    public void setWeight(){
+        graph.setOnMousePressed((e -> graph.setWeightedWall()));
     }
 
     public void generateMaze(){
@@ -56,6 +64,7 @@ public class Controller {
         });
         t.start();
     }
+
 
 
 }

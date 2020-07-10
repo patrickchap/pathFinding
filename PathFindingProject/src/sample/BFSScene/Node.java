@@ -20,6 +20,16 @@ public class Node extends StackPane {
     public boolean mazeVisited = false;
 
 
+    //used for dijkstras
+    private Integer distance = Integer.MAX_VALUE;
+    //used for dijkstras
+    Map<Node, Integer> adjacentNodes = new HashMap<>();
+    //used for dijkstras
+    public void addDestination(Node destination, int distance) {
+        adjacentNodes.put(destination, distance);
+    }
+
+
     public Node(int x, int y) {
 
         border.setStroke(Color.GREEN);
@@ -27,6 +37,18 @@ public class Node extends StackPane {
         getChildren().addAll(border);
         setLayoutX(x);
         setLayoutY(y);
+    }
+
+    public Map<Node, Integer> getAdjacentNodes(){
+        return this.adjacentNodes;
+    }
+
+    public Integer getDistance(){
+        return this.distance;
+    }
+
+    public Integer setDistance(Integer i){
+        return this.distance = i;
     }
 
     /**

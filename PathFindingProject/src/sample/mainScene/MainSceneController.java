@@ -28,4 +28,13 @@ public class MainSceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void openDijkstra(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/algorithm/DijkstraVisual.fxml"));
+        Scene scene = new Scene(root, 1100, 800);
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setTitle("Dijkstra");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

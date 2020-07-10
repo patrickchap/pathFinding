@@ -84,52 +84,33 @@ public class Graph extends Pane {
         }
     }
 
-    //TO DUE move bfs to a un-weighted search
-//    /**
-//     * Method to perform a breadth first search on the Node[][]
-//     * in order to find the shortest path from start to goal.
-//     *
-//     */
-//    public void bfs() throws NullPointerException{
-//        if(this.start == null || this.goal == null) {
-//            return;
-//        }
-//        Node start = this.start;
-//        Node goal = this.goal;
-//        start.visited = true;
-//        this.queue.add(start);
-//
-//        while(this.queue.size() != 0) {
-//            try {
-//                Thread.currentThread().sleep(10);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//
-//            Node curr = this.queue.remove();
-//
-//                if (curr.equals(goal)) {
-//                    Node node = goal;
-//                    //if goal is found set camefrom nodes to pink to show the shortes path starting node
-//                    while (!node.getCameFrom().equals(start)) {
-//                        node = node.getCameFrom();
-//                        node.border.setFill(Color.PINK);
-//                    }
-//                    return;
-//                }
-//                //search through nodes neighbors that have not been visited
-//                for (Node n : curr.getNeighbors()) {
-//                    if (!n.visited) {
-//                        n.visited = true;
-//                        if(n != this.goal)
-//                            //set visited nodes blue if it is not goal node
-//                            n.border.setFill(Color.LIGHTBLUE);
-//                        n.setCameFrom(curr);
-//                        this.queue.add(n);
-//                    }
-//                }
-//            }
-//        }
+
+    //used for dijkstras
+    public void setNeighborsDistance(){
+        for(int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                Node currentNode = twoDimNodeArray[i][j];
+                if (currentNode != null){
+                    for (Node n : currentNode.getNeighbors()) {
+                        if (n.border.getFill() == Color.BROWN) {
+                            currentNode.addDestination(n, 10);
+//                            System.out.println("Wall hit");
+                        }
+                        if (n.border.getFill() == Color.TRANSPARENT) {
+                            currentNode.addDestination(n, 1);
+                        }
+                        if (n.border.getFill() == Color.GREEN) {
+                            currentNode.addDestination(n, 1);
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+
 
     /**
      *
@@ -185,6 +166,30 @@ public class Graph extends Pane {
             }
         }
     }
+
+
+
+    public void setWeightedWall() {
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                Node node = twoDimNodeArray[i][j];
+                node.addEventFilter(MouseEvent.DRAG_DETECTED, e -> {
+                    startFullDrag();
+                    node.border.setFill(Color.BROWN);
+                });
+                node.setOnMouseDragOver(e -> {
+                    node.border.setFill(Color.BROWN);
+                });
+                node.setOnMouseReleased(e ->  node.border.setFill(Color.BROWN));
+            }
+        }
+    }
+
+
+    //weight = brown
+
+
+
 
     /**
      *
