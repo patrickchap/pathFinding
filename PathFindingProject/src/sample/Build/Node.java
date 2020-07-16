@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Node extends StackPane {
+public class Node extends StackPane implements Comparable<Node>  {
 
     public Rectangle border = new Rectangle(15-2, 15-2);
     private List<Node> neighbors = new ArrayList<Node>();
@@ -98,4 +98,16 @@ public class Node extends StackPane {
         return this.cameFrom;
     }
 
+
+    @Override
+    public int compareTo(Node node) {
+
+        if (this.getDistance() < node.getDistance())
+            return -1;
+        if (this.getDistance() > node.getDistance())
+            return 1;
+        return 0;
+
+//        return this.getDistance().compareTo(node.getDistance());
+    }
 }
