@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,7 +29,7 @@ public class MainSceneController {
     }
 
     public void openDijkstra(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/algorithm/DijkstraVisual.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/DijstrasScene/DijkstraVisual.fxml"));
         Scene scene = new Scene(root, 1100, 800);
         Stage stage = new Stage(StageStyle.DECORATED);
         stage.setTitle("Dijkstra");

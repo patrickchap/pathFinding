@@ -1,7 +1,7 @@
 package sample.algorithm;
 import javafx.scene.paint.Color;
-import sample.BFSScene.Graph;
-import sample.BFSScene.Node;
+import sample.Build.Graph;
+import sample.Build.Node;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;

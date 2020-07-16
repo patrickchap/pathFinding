@@ -1,9 +1,10 @@
-package sample.algorithm;
+package sample.DijstrasScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import sample.BFSScene.GenerateMaze;
-import sample.BFSScene.Graph;
+import sample.Build.GenerateMaze;
+import sample.Build.Graph;
+import sample.algorithm.WeightedSearch;
 
 public class DijkstraController {
 

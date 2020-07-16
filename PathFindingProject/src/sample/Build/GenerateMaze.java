@@ -1,7 +1,9 @@
-package sample.BFSScene;
+package sample.Build;
 
 
 import javafx.scene.paint.Color;
+import sample.Build.Graph;
+import sample.Build.Node;
 
 import java.util.*;
 

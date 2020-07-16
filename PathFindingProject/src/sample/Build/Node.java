@@ -1,4 +1,4 @@
-package sample.BFSScene;
+package sample.Build;
 
 
 import javafx.scene.layout.StackPane;
@@ -43,10 +43,11 @@ public class Node extends StackPane {
         return this.adjacentNodes;
     }
 
+    //used for dijkstras
     public Integer getDistance(){
         return this.distance;
     }
-
+    //used for dijkstras
     public Integer setDistance(Integer i){
         return this.distance = i;
     }

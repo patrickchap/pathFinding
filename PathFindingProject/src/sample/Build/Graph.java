@@ -1,8 +1,9 @@
-package sample.BFSScene;
+package sample.Build;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+
 import java.util.*;
 
 
@@ -94,16 +95,13 @@ public class Graph extends Pane {
                     for (Node n : currentNode.getNeighbors()) {
                         if (n.border.getFill() == Color.BROWN) {
                             currentNode.addDestination(n, 10);
-//                            System.out.println("Wall hit");
                         }
                         if (n.border.getFill() == Color.TRANSPARENT) {
                             currentNode.addDestination(n, 1);
                         }
                         if (n.border.getFill() == Color.GREEN) {
                             currentNode.addDestination(n, 1);
-
                         }
-
                     }
                 }
             }
@@ -117,9 +115,10 @@ public class Graph extends Pane {
      */
     public void setStartingNode(){
         int counter = 0;
-        for(int i = 0; i < this.rows; i++){
-            for(int j = 0; j< this.cols; j++){
+        for(int i = 1; i < this.rows-1; i++){
+            for(int j = 1; j< this.cols-1; j++){
                 Node node = twoDimNodeArray[i][j];
+                System.out.println(i + "  " + j);
                 if(node.border.getFill() == Color.RED && counter == 1) {
                     node.border.setFill(Color.TRANSPARENT);
                 }else{
@@ -135,8 +134,9 @@ public class Graph extends Pane {
      */
     public void setGoalNode(){
         int counter = 0;
-        for(int i = 0; i < this.rows; i++){
-            for(int j = 0; j< this.cols; j++){
+
+        for(int i = 1; i < this.rows-1; i++){
+            for(int j = 1; j< this.cols-1; j++){
                 Node node = twoDimNodeArray[i][j];
                 if(node.border.getFill() == Color.GREEN && counter == 1) {
                     node.border.setFill(Color.TRANSPARENT);
@@ -168,10 +168,10 @@ public class Graph extends Pane {
     }
 
 
-
+    //used for dijkstras
     public void setWeightedWall() {
-        for (int i = 0; i < this.rows; i++) {
-            for (int j = 0; j < this.cols; j++) {
+        for (int i = 1; i < this.rows -1; i++) {
+            for (int j = 1; j < this.cols -1; j++) {
                 Node node = twoDimNodeArray[i][j];
                 node.addEventFilter(MouseEvent.DRAG_DETECTED, e -> {
                     startFullDrag();
@@ -185,8 +185,6 @@ public class Graph extends Pane {
         }
     }
 
-
-    //weight = brown
 
 
 
