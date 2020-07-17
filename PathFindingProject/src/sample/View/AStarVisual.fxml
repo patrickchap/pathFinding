@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controler.AStarController">
+   <children>
+      <SplitPane dividerPositions="0.22742474916387959" prefHeight="800.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="80.0">
+               <children>
+                  <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onAction="#setStartNode" text="Set Start" />
+                  <Button layoutX="31.0" layoutY="50.0" mnemonicParsing="false" onAction="#setGoalNode" text="Set Goal" />
+                  <Button layoutX="39.0" layoutY="343.0" mnemonicParsing="false" onAction="#runAstar" text="Run" />
+                  <Button layoutX="31.0" layoutY="88.0" mnemonicParsing="false" onAction="#setWalls" text="Set Wall" />
+                  <Button layoutX="18.0" layoutY="126.0" mnemonicParsing="false" onAction="#removeWalls" text="Remove Walls" />
+                  <Button layoutX="26.0" layoutY="164.0" mnemonicParsing="false" onAction="#setWeight" text="Set Weight" />
+               </children></AnchorPane>
+          <AnchorPane fx:id="ancorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
